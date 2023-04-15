@@ -1,0 +1,71 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Display {
+    --main: #0cc;
+    --secu: #111;
+    --around: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: calc(var(--around)/2);
+    padding: var(--around);
+
+    
+    .contain {
+        border-radius: calc(var(--around)/2);
+        flex: 1;
+        @include flex-center;
+        flex-direction: column;
+
+        
+        padding: var(--around);
+        background: var(--secu);
+
+
+        &img {
+            width: 100%;
+        }
+
+
+        .info {
+            width: 100%;
+            @include flex-center();
+            justify-content: space-between;
+
+            margin-top: var(--around);
+
+            .alive, .dead {
+                width: 30px;
+                border-radius: 100px 0;
+                aspect-ratio: 2;
+            }
+            .alive { background: #0f0; }
+            .dead { background: #f00; }
+
+
+            .sub {
+                display: flex;
+                flex-direction: column;
+                gap: 2.5px;
+                text-align: end;
+                
+                .name {
+                    font-size: 1rem;
+                    color: #fff;
+                }
+
+                .location {
+                    font-size: .7rem;
+                    color: #ccc;
+                }
+            }
+        }
+    }
+
+    background: var(--main);
+}

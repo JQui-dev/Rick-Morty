@@ -1,0 +1,49 @@
+@mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Intro {
+    --main: #ff0;
+    --secu: #0cc;
+    --around: 10px;
+
+    width: 100%;
+    height: 5rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: var(--around);
+    
+    background: #000;
+
+    & nav {
+        height: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: calc(var(--around)*2);
+        & a {
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            font-size: 20px;
+            text-decoration: none;
+    
+            color: #fff;
+
+            &:hover {
+                color: var(--main);
+                transition: 200ms;
+            }
+        }
+    }
+}
