@@ -37,13 +37,13 @@ function Navigation({ page, setApi }) {
           }}
         />
 
-        <button onClick={() => {
+        <button onClick={(e) => {
+            e.preventDefault()
             let numbers = /^[-+]?[0-9]+$/;
-            console.log(page.pages)
-            if (input.match(numbers)  && parseInt(input)>0 && parseInt(input)<=page.pages ) {
-              setApi(`https://rickandmortyapi.com/api/character?page=${input}`);
-              setCount((count = parseInt(input)));
-            }
+              if (input.match(numbers)  && parseInt(input)>0 && parseInt(input)<=page.pages ) {
+                setApi(`https://rickandmortyapi.com/api/character?page=${input}`);
+                setCount((count = parseInt(input)));
+              }
             setInput((input = ""));
           }}
         > GO </button>
