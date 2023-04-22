@@ -9,7 +9,25 @@
 
     padding: var(--around);
     
-    background: #000;
+    background: var(--aux);
+    color: var(--aux2);
+
+    
+    & img {
+        height: 5rem;
+        aspect-ratio: 1;
+        filter: invert(100%);
+    }
+    .search {
+        @include style.flex-center;
+        gap: var(--around);
+        & input {
+            all: unset;
+            height: 20px;
+            padding: var(--around);
+            border-bottom: 2px solid var(--aux2);
+        }
+    }
 
     & nav {
         height: 100%;

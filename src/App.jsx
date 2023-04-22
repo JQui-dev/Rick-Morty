@@ -25,7 +25,7 @@ function App() {
 
   return (
     <div className="App">
-      <Intro/>
+      <Intro setApi={setApi}/>
       <Display data={data}/>
       <Navigation page={page} setApi={setApi}/>
     </div>

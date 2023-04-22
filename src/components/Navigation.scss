@@ -3,7 +3,8 @@
 
 .Navigation {
     @include style.flex-center;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
     padding: var(--around);
     gap: calc(var(--around));
     
