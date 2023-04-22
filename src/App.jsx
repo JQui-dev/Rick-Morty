@@ -10,6 +10,7 @@ function App() {
   let [ api, setApi ] = useState("https://rickandmortyapi.com/api/character");
   let [ data, setData ] = useState([]);
   let [ page, setPage ] = useState([]);
+  let [count, setCount] = useState(1);
 
   useEffect(()=>{
       fetchData();
@@ -18,16 +19,15 @@ function App() {
   const fetchData = async () => {
       const res = await fetch(api)
       const jsonData = await res.json();
-      console.log(jsonData)
       setData(jsonData.results)
       setPage(jsonData.info)
   }
 
   return (
     <div className="App">
-      <Intro setApi={setApi}/>
+      <Intro setApi={setApi} count={count} setCount={setCount}/>
       <Display data={data}/>
-      <Navigation page={page} setApi={setApi}/>
+      <Navigation page={page} setApi={setApi} count={count} setCount={setCount}/>
     </div>
   )
 }

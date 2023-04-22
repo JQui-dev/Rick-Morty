@@ -1,12 +1,11 @@
 import { useState } from "react";
 import "./Navigation.scss";
 
-function Navigation({ page, setApi }) {
+function Navigation({ page, setApi, count, setCount }) {
   let prev = page.prev;
   let next = page.next;
 
   let [input, setInput] = useState("");
-  let [count, setCount] = useState(1);
 
   return (
     <div className="Navigation">
