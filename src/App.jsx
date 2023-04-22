@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react';
 
 import Intro from './components/Intro'
 import Display from './components/Display'
+import Navigation from './components/Navigation';
 
 function App() {
-  let api = "https://rickandmortyapi.com/api/character"
+  let [ api, setApi ] = useState("https://rickandmortyapi.com/api/character");
   let [ data, setData ] = useState([]);
+  let [ page, setPage ] = useState([]);
 
   useEffect(()=>{
       fetchData();
@@ -16,14 +18,16 @@ function App() {
   const fetchData = async () => {
       const res = await fetch(api)
       const jsonData = await res.json();
-      console.log(jsonData.results)
+      console.log(jsonData)
       setData(jsonData.results)
+      setPage(jsonData.info)
   }
 
   return (
     <div className="App">
       <Intro/>
       <Display data={data}/>
+      <Navigation page={page} setApi={setApi}/>
     </div>
   )
 }

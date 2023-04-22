@@ -1,13 +1,7 @@
-@mixin flex-center {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+@use './style.scss';
 
 .Display {
-    --main: #0cc;
-    --secu: #111;
-    --around: 10px;
+    
 
     display: flex;
     flex-wrap: wrap;
@@ -15,11 +9,12 @@
     gap: calc(var(--around)/2);
     padding: var(--around);
 
+    background: var(--main);
     
     .contain {
         border-radius: calc(var(--around)/2);
         flex: 1;
-        @include flex-center;
+        @include style.flex-center;
         flex-direction: column;
 
         
@@ -27,14 +22,9 @@
         background: var(--secu);
 
 
-        &img {
-            width: 100%;
-        }
-
-
         .info {
             width: 100%;
-            @include flex-center();
+            @include style.flex-center;
             justify-content: space-between;
 
             margin-top: var(--around);
@@ -56,7 +46,7 @@
                 
                 .name {
                     font-size: 1rem;
-                    color: #fff;
+                    color: var(--aux2);
                 }
 
                 .location {
@@ -66,6 +56,4 @@
             }
         }
     }
-
-    background: var(--main);
 }

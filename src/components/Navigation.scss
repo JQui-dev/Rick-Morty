@@ -1,0 +1,52 @@
+@use "./style.scss";
+
+
+.Navigation {
+    @include style.flex-center;
+    flex-direction: column;
+    padding: var(--around);
+    gap: calc(var(--around));
+    
+    background: var(--aux);
+    color: var(--aux2);
+    
+    .main {
+        @include style.flex-center;
+        flex-direction: row;
+        gap: calc(var(--around));
+    }
+
+    .hide { display: none; }
+    .show { 
+        display: block;
+        
+        all: unset;
+
+        padding: var(--around);
+
+        border-radius: calc(var(--around)/2);
+
+        color: var(--aux2);
+        background: var(--main);
+
+        &:hover {
+            filter: saturate(2);
+        }
+    }
+
+
+    .goto {
+        border-bottom: 2px solid var(--aux2);
+        &:hover, &:focus {
+            border-bottom: 2px solid var(--main);
+        }
+
+        & input, button {
+            all: unset;
+            padding: var(--around);
+        }
+        & button {
+            background: var(--main);
+        }
+    }
+}
