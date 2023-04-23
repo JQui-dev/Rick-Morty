@@ -1,14 +1,33 @@
 import { useState } from "react";
 import "./Navigation.scss";
 
-function Navigation({ page, setApi, count, setCount }) {
+function Navigation({ page, setApi, count, setCount, error }) {
   let prev = page.prev;
   let next = page.next;
 
   let [input, setInput] = useState("");
 
   return (
-    <div className="Navigation">
+    <div className={error=="" ? "Navigation show" : "hide"}>
+      <form className="goto">
+        <input type="text" placeholder="Page number" value={input} 
+          onChange={(e) => {
+            setInput((input = e.target.value));
+          }}
+        />
+
+        <button onClick={(e) => {
+            e.preventDefault()
+            let numbers = /^[-+]?[0-9]+$/;
+              if (input.match(numbers)  && parseInt(input)>0 && parseInt(input)<=page.pages ) {
+                setApi(`https://rickandmortyapi.com/api/character?page=${input}`);
+                setCount((count = parseInt(input)));
+              }
+            setInput((input = ""));
+          }}
+        > GO </button>
+      </form>
+
       <div className="main">
         <button className={prev !== null ? "show" : "hide"}
           onClick={() => {
@@ -28,25 +47,6 @@ function Navigation({ page, setApi, count, setCount }) {
           NEXT
         </button>
       </div>
-
-      <form className="goto">
-        <input type="text" placeholder="Page number" value={input} 
-          onChange={(e) => {
-            setInput((input = e.target.value));
-          }}
-        />
-
-        <button onClick={(e) => {
-            e.preventDefault()
-            let numbers = /^[-+]?[0-9]+$/;
-              if (input.match(numbers)  && parseInt(input)>0 && parseInt(input)<=page.pages ) {
-                setApi(`https://rickandmortyapi.com/api/character?page=${input}`);
-                setCount((count = parseInt(input)));
-              }
-            setInput((input = ""));
-          }}
-        > GO </button>
-      </form>
     </div>
   );
 }

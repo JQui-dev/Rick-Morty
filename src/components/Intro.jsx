@@ -13,9 +13,7 @@ function Intro({ setApi, count, setCount }) {
                 <BsSearch color="#fff" size={30}/>
                 <input type="text" placeholder="Character name" onChange={(e) => {
                     e.preventDefault();
-                    console.log(count);
-                    setCount(count = 1)
-                    console.log(count);
+                    setCount(count = 1);
                     setApi(`https://rickandmortyapi.com/api/character/?name=${e.target.value}`)
                 }}/>
             </div>

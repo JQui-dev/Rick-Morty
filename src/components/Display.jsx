@@ -1,9 +1,10 @@
 import "./Display.scss"
 
-function Display({data}) {
+function Display({data, error}) {
     return (
         <div className="Display">
             {
+                error!="" ? <h1 className="error">{error}</h1> :
                 data.map(res => (
                     <div className="contain" key={res.id}>
                         <img src={res.image} alt="" />

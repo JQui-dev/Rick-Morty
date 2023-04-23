@@ -17,6 +17,7 @@
         height: 5rem;
         aspect-ratio: 1;
         filter: invert(100%);
+        padding: 5px
     }
     .search {
         @include style.flex-center;
