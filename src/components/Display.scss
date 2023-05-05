@@ -1,62 +1,72 @@
 @use './style.scss';
 
 .Display {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: calc(var(--gap)/2);
+    padding: var(--gap);
+
+    background: var(--main);
+
     .error {
         width: 100%;
         text-align: center;
     }
 
-    display: flex;
-    flex-wrap: wrap;
-
-    gap: calc(var(--around)/2);
-    padding: var(--around);
-
-    background: var(--main);
-    
-    .contain {
-        border-radius: calc(var(--around)/2);
+    .chara {
         flex: 1;
+
         @include style.flex-center;
         flex-direction: column;
 
-        
-        padding: var(--around);
-        background: var(--secu);
+        width: 300px;
 
+        padding: var(--gap);
+        gap: var(--gap);
+        
+        text-decoration: none;
+        border-radius: var(--gap);
+
+        background: var(--aux);
+        color: var(--aux2);
+
+        & img {
+            width: 300px;
+            aspect-ratio: 1;
+            border-radius: var(--gap);
+            object-fit: cover;
+        }
 
         .info {
             width: 100%;
-            @include style.flex-center;
+
+            display: flex;
+            align-items: center;
             justify-content: space-between;
 
-            margin-top: var(--around);
-
-            .alive, .dead {
-                width: 30px;
-                border-radius: 100px 0;
-                aspect-ratio: 2;
-            }
-            .alive { background: #0f0; }
-            .dead { background: #f00; }
-
+            padding: calc(var(--gap)/2);
 
             .sub {
-                display: flex;
-                flex-direction: column;
-                gap: 2.5px;
-                text-align: end;
-                
-                .name {
-                    font-size: 1rem;
+                .name{
+                    font-size: 1.1rem;
                     color: var(--aux2);
                 }
-
-                .location {
+                .location{
                     font-size: .7rem;
-                    color: #ccc;
+                    color: #aaa;
                 }
             }
+
+            .alive, .dead, .unkw {
+                width: 30px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+            }
+
+            .alive { background: #f00; }
+            .dead { background: #0f0; }
+            .unkw { background: #aaa; }
         }
     }
 }
