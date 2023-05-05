@@ -14,7 +14,7 @@ function Display({data, error}) {
                                 <h2 className="name">{res.name}</h2>
                                 <h2 className="location">{res.location.name}</h2>
                             </div>
-                            <div className={res.status === "Alive" ? "alive" : "dead"}></div>
+                            <div className={res.status === "Alive" ? "alive" : res.status === "Dead" ? "dead" : "unkw"}></div>
                         </div>
                     </a>
                 ))

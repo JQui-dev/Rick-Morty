@@ -45,7 +45,7 @@ function Navigation({ page, setApi, count, setCount, error }) {
 
         <button className={next !== null ? "show" : "hide"}
           onClick={() => {
-            if (count<=page.pages) {
+            if (count<page.pages) {
               setApi(next);
               setCount(count + 1);
             }
