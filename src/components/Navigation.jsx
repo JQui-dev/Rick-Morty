@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "./Navigation.scss";
 
+import { AiFillCaretLeft, AiFillCaretRight } from "react-icons/ai";
+
 function Navigation({ page, setApi, count, setCount, error }) {
   let prev = page.prev;
   let next = page.next;
@@ -9,8 +11,22 @@ function Navigation({ page, setApi, count, setCount, error }) {
 
   return (
     <div className={error=="" ? "Navigation show" : "hide"}>
-      <form className="goto">
-        <input type="text" placeholder="Page number" value={input} 
+      
+
+      <div className="main">
+        <button className={prev !== null ? "show" : "hide"}
+          onClick={() => {
+            if (count>1) {
+              setApi(prev);
+              setCount(count - 1);
+            }
+          }}
+        >
+          <AiFillCaretLeft/>
+        </button>
+
+        <form className="goto">
+        <input type="text" placeholder={count} value={input} 
           onChange={(e) => {
             setInput((input = e.target.value));
           }}
@@ -24,27 +40,18 @@ function Navigation({ page, setApi, count, setCount, error }) {
                 setCount((count = parseInt(input)));
               }
             setInput((input = ""));
-          }}
-        > GO </button>
-      </form>
+          }} > GO </button>
+        </form>
 
-      <div className="main">
-        <button className={prev !== null ? "show" : "hide"}
-          onClick={() => {
-            setApi(prev);
-            setCount(count - 1);
-          }}
-        >
-          BACK
-        </button>
-        <h4>{count}</h4>
         <button className={next !== null ? "show" : "hide"}
           onClick={() => {
-            setApi(next);
-            setCount(count + 1);
+            if (count<=page.pages) {
+              setApi(next);
+              setCount(count + 1);
+            }
           }}
         >
-          NEXT
+          <AiFillCaretRight/>
         </button>
       </div>
     </div>

@@ -4,8 +4,6 @@
 
 .Navigation {
     @include style.flex-center;
-    flex-direction: row;
-    justify-content: space-between;
     padding: var(--around);
     gap: calc(var(--around));
     
@@ -16,46 +14,36 @@
         @include style.flex-center;
         flex-direction: row;
         gap: calc(var(--around));
-    }
-
-    .show { 
-        display: block;
         
-        all: unset;
-
-        padding: var(--around);
-
-        border-radius: calc(var(--around)/2);
-
-        color: var(--aux2);
-        background: var(--main);
-
-        &:hover {
-            filter: saturate(2);
-        }
-    }
-
-
-    .goto {
-        border-bottom: 2px solid var(--aux2);
-        &:hover, &:focus {
-            border-bottom: 2px solid var(--main);
-        }
-
-        & input, button {
+        button, input {
             all: unset;
-            padding: var(--around);
-        }
-        & input {
-            width: 8rem;
-        }
-        & button {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            width: 3rem;
+            aspect-ratio: 1;
+
+            border-radius: var(--gap);
+
             background: var(--main);
+            color: var(--aux);
+        }
+
+        .goto {
+            display: flex;
+
+            ::placeholder {
+                color: var(--aux2);
+            }
+
+            & button {
+                display: none;
+            }
         }
     }
-}
-@media screen and (max-width: 600px) {
-    .Navigation {
-        flex-direction: column-reverse;
-    }
+
 }
