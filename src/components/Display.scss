@@ -1,6 +1,7 @@
 @use './style.scss';
 
 .Display {
+    position: relative;
     display: flex;
     flex-wrap: wrap;
 
@@ -12,6 +13,70 @@
     .error {
         width: 100%;
         text-align: center;
+    }
+
+    .specific {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        width: 100%;
+
+        gap: var(--gap);
+
+
+        .back {
+            display: flex;
+            align-items: center;
+
+            height: 4rem;
+
+            gap: var(--gap);
+
+            border-radius: var(--gap);
+
+            background: var(--aux);
+            color: var(--aux2);
+        }
+
+        .sChara {
+            display: flex;
+
+            & img {
+                flex: 1;
+    
+                border-radius: var(--gap);
+            }
+            .info {
+                flex: 2;
+    
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: space-evenly;
+    
+                padding-left: var(--gap);
+    
+                text-align: start;
+                font-size: 1.3rem;
+    
+                .name {
+                    -webkit-text-stroke: 2px;
+                    font-size: 3em;
+                }
+                .sub {
+                    display: flex;
+                    align-items: center;
+    
+                    gap: var(--gap);
+    
+                    .alive, .dead, .unkw {
+                        width: 3rem;
+                    }
+                }
+            }
+        }
+
     }
 
     .chara {
@@ -57,16 +122,18 @@
                     color: #aaa;
                 }
             }
-
             .alive, .dead, .unkw {
                 width: 30px;
-                aspect-ratio: 1;
-                border-radius: 50%;
             }
-
-            .alive { background: #0f0; }
-            .dead { background: #f00; }
-            .unkw { background: #aaa; }
         }
     }
+    
+    .alive, .dead, .unkw {
+        aspect-ratio: 1;
+        border-radius: 50%;
+    }
+
+    .alive { background: #0f0; }
+    .dead { background: #f00; }
+    .unkw { background: #aaa; }
 }
