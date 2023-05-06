@@ -18,9 +18,9 @@
     .specific {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
 
         width: 100%;
+        min-height: 32em;
 
         gap: var(--gap);
 
@@ -41,9 +41,21 @@
 
         .sChara {
             display: flex;
+            flex-wrap: wrap;
+
+            height: 100%;
 
             & img {
                 flex: 1;
+
+                max-height: 100%;
+                aspect-ratio: 1;
+
+                @media screen and (max-width: 600px) {
+                    aspect-ratio: 3/2.5;
+                }
+
+                object-fit: cover;
     
                 border-radius: var(--gap);
             }
@@ -53,9 +65,14 @@
                 display: flex;
                 flex-direction: column;
                 align-items: start;
-                justify-content: space-evenly;
+                justify-content: space-around;
     
                 padding-left: var(--gap);
+                gap: calc(var(--gap)/2);
+
+                @media screen and (max-width: 600px) {
+                    padding: var(--gap) 0;
+                }
     
                 text-align: start;
                 font-size: 1.3rem;
