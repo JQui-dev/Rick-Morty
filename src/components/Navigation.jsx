@@ -43,9 +43,9 @@ function Navigation({ page, setApi, count, setCount, error, nav }) {
               if (input.match(numbers)  && parseInt(input)>0 && parseInt(input)<=page.pages ) {
                 setApi(`https://rickandmortyapi.com/api/character?page=${input}`);
                 setCount((count = parseInt(input)));
+                window.scrollTo({top: 0})
               }
             setInput((input = ""));
-            window.scrollTo({top: 0})
           }} />
         </form>
 

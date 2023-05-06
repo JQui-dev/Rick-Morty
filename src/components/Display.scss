@@ -94,17 +94,16 @@
                 flex-direction: column;
                 
                 .info {
+                    gap: var(--gap);
                     padding: var(--gap) 0;
-    
-                        font-size: 1rem;
-    
-                        .name {
-                            font-size: 2rem;
-                        }
-    
-                        .alive, .dead, .unkw {
-                            width: 2rem;
-                        }
+                    font-size: 1rem;
+
+                    .name {
+                        font-size: 2rem;
+                    }
+                    .alive, .dead, .unkw {
+                        width: 1rem;
+                    }
                 }
             }
 
