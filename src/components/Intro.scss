@@ -1,13 +1,17 @@
 @use './style.scss';
 
+.show { display: flex; }
+.hide { display: none; }
+.inv { flex-direction: row-reverse; }
+
 .Intro {
     width: 100%;
-    height: 5rem;
+    height: 5em;
 
     @include style.flex-center;
     justify-content: space-between;
 
-    padding: var(--around);
+    padding: var(--gap);
     
     background: var(--aux);
     color: var(--aux2);
@@ -21,11 +25,16 @@
     }
     .search {
         @include style.flex-center;
-        gap: var(--around);
-        & input {
+        flex-direction: row-reverse;
+        gap: var(--gap);
+
+        & * {
+            color: var(--aux2);
+        }
+        .sinput {
             all: unset;
             height: 20px;
-            padding: var(--around);
+            padding: var(--gap);
             border-bottom: 2px solid var(--aux2);
         }
     }
@@ -35,7 +44,7 @@
 
         @include style.flex-center;
 
-        gap: calc(var(--around)*2);
+        gap: calc(var(--gap)*2);
         & a {
             height: 100%;
 

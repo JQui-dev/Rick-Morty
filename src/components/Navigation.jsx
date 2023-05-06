@@ -23,6 +23,7 @@ function Navigation({ page, setApi, count, setCount, error, nav }) {
             if (count>1) {
               setApi(prev);
               setCount(count - 1);
+              window.scrollTo({top: 0})
             }
           }}
         ><AiFillCaretLeft/></button>
@@ -44,6 +45,7 @@ function Navigation({ page, setApi, count, setCount, error, nav }) {
                 setCount((count = parseInt(input)));
               }
             setInput((input = ""));
+            window.scrollTo({top: 0})
           }} />
         </form>
 
@@ -54,6 +56,7 @@ function Navigation({ page, setApi, count, setCount, error, nav }) {
             if (count<page.pages) {
               setApi(next);
               setCount(count + 1);
+              window.scrollTo({top: 0})
             }
           }}
         ><AiFillCaretRight/></button>

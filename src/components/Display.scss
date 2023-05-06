@@ -11,8 +11,10 @@
     background: var(--main);
 
     .error {
-        width: 100%;
+        @include style.flex-center;
+    
         text-align: center;
+        width: 100%;
     }
 
     .specific {
@@ -48,12 +50,10 @@
             & img {
                 flex: 1;
 
+                resize: none;
+
                 max-height: 100%;
                 aspect-ratio: 1;
-
-                @media screen and (max-width: 600px) {
-                    aspect-ratio: 3/2.5;
-                }
 
                 object-fit: cover;
     
@@ -69,10 +69,6 @@
     
                 padding-left: var(--gap);
                 gap: calc(var(--gap)/2);
-
-                @media screen and (max-width: 600px) {
-                    padding: var(--gap) 0;
-                }
     
                 text-align: start;
                 font-size: 1.3rem;
@@ -92,9 +88,34 @@
                     }
                 }
             }
-        }
 
+            @media screen and (max-width: 625px) {
+                flex-wrap: nowrap;
+                flex-direction: column;
+                
+                .info {
+                    padding: var(--gap) 0;
+    
+                        font-size: 1rem;
+    
+                        .name {
+                            font-size: 2rem;
+                        }
+    
+                        .alive, .dead, .unkw {
+                            width: 2rem;
+                        }
+                }
+            }
+
+        }
     }
+
+
+
+
+
+
 
     .chara {
         flex: 1;
