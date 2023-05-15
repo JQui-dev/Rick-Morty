@@ -12,9 +12,10 @@ footer {
     color: var(--cb);
 
     & p {
-
         display: flex;
         gap: calc(var(--gap)/2);
+
+        font-size: small;
 
         & a {
             color: var(--c3);
@@ -23,7 +24,6 @@ footer {
 
     .contact a {
         color: var(--cb);
-        
         & :hover {
             border-radius: var(--gap);
 

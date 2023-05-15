@@ -40,7 +40,7 @@ function Specific() {
         <img src={info.image} alt={`${info.name} image`} />
         <div className="info">
 
-            <h1>My name is {info.name}!</h1>
+            <h1>{info.name}!</h1>
             <div className="status">
                 <h2>Status: </h2>
                 <Alive status={info.status}/>
