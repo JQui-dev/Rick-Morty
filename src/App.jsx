@@ -1,51 +1,42 @@
-import "./App.scss";
+// MODULES
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
-import { useState, useEffect } from "react";
+// PAGES
+import Error from "./pages/Error"
 
-import Intro from "./components/Intro";
-import Display from "./components/Display";
-import Navigation from "./components/Navigation";
+import HomePage from "./pages/HomePage"
+
+import Characters from "./pages/Characters"
+import Specific from "./pages/Specific"
+
+import Places from "./pages/Places"
+import About from "./pages/About"
+
+// COMPONENTS
+import NavBar from "./components/NavBar"
+import Footer from "./components/Footer"
+
+// STYLE
+import "./App.scss"
 
 function App() {
-  let [api, setApi] = useState("https://rickandmortyapi.com/api/character");
-  let [data, setData] = useState([]);
-  let [error, setError] = useState([]);
-
-  let [page, setPage] = useState([]);
-  let [nav, setNav] = useState(true);
-  let [count, setCount] = useState(1);
-
-  useEffect(() => {
-    fetchData();
-  }, [api]);
-
-  const fetchData = async () => {
-    const res = await fetch(api);
-    if (!res.ok) {
-      return setError((error = "NOT FOUND"));
-    }
-    const jsonData = await res.json();
-    setData(jsonData.results);
-    console.log(data);
-    setPage(jsonData.info);
-    setError((error = ""));
-    console.log(api);
-  };
-
   return (
     <div className="App">
-      <Intro setApi={setApi} count={count} setCount={setCount} />
-      <Display data={data} error={error} nav={nav} setNav={setNav} />
-      <Navigation
-        page={page}
-        setApi={setApi}
-        count={count}
-        setCount={setCount}
-        error={error}
-        nav={nav}
-      />
+      <BrowserRouter>
+      <NavBar/>
+        <Routes>
+          <Route path="/" element={<HomePage/>}></Route>
+          <Route path="characters/*" element={<Characters/>}>
+          </Route>
+          <Route path="characters/:id" element={<Specific/>}></Route>
+          <Route path="places" element={<Places/>}></Route>
+          <Route path="about" element={<About/>}></Route>
+          <Route path="*" element={<Error/>}></Route>
+        </Routes>
+      <Footer/>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,0 +1,36 @@
+@use "./../../style.scss";
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    padding: var(--gap);
+
+    background: var(--c2);
+    color: var(--cb);
+
+    & p {
+
+        display: flex;
+        gap: calc(var(--gap)/2);
+
+        & a {
+            color: var(--c3);
+        }
+    }
+
+    .contact a {
+        color: var(--cb);
+        
+        & :hover {
+            border-radius: var(--gap);
+
+            transition: var(--time) ;
+            
+            background: var(--cb);
+            color: var(--c3);
+        }
+    }
+}
