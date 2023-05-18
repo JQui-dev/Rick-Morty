@@ -46,8 +46,8 @@ function Specific() {
                 <Alive status={info.status}/>
                 <h2>{info.status}</h2>
             </div>
-            <h2>I'm {info.gender} and {info.species}</h2>
-            <h2>I was created in {created=="Invalid Date" ? "... Lemme think" : created}</h2>
+            <h2>I'm {info.gender} & {info.species}</h2>
+            <h2>Created in {created=="Invalid Date" ? "... Lemme think" : created}</h2>
         </div>
     </div>
     )
