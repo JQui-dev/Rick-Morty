@@ -1,0 +1,10 @@
+.Alive, .Dead, .Unknown {
+    width: 30px;
+    aspect-ratio: 3/2;
+    border-radius: 10px;
+    border: 2.5px solid #000;
+}
+
+.Alive { background: #0f0; }
+.Dead { background: #f00; }
+.Unknown { background: #777; }

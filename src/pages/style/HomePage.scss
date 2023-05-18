@@ -1,0 +1,65 @@
+@use "./../../style.scss";
+
+.HomePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 80vh;
+
+    padding: var(--gap);
+
+    background-image: url("/main.webp");
+    background-position: center;
+    background-size: cover;
+
+    color: var(--ca);
+
+    .phrase {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        gap: calc(var(--gap)*3);
+
+        .info {
+            display: flex;
+            flex-direction: column;
+    
+            background: #fff1;
+            backdrop-filter: blur(5px);
+    
+            border-radius: var(--gap);
+    
+            padding: var(--gap);
+            gap: var(--gap);
+    
+            & h2 {
+                text-align: justify;
+            }
+            & h3 {
+                text-align: end;
+            }
+        }
+    }
+
+
+    .see {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 50%;
+
+        padding: var(--gap);
+
+        font-weight: 600;
+
+        border-radius: var(--gap);
+
+        background: var(--c2);
+        color: var(--cb);
+    }
+}

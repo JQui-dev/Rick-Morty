@@ -1,0 +1,17 @@
+@mixin flex-c {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:root {
+    --c1: #0ff;
+    --c2: #0aa;
+    --c3: #055;
+    --ca: #000;
+    --cb: #fff;
+
+    --gap: 10px;
+
+    --time: 400ms;
+}
