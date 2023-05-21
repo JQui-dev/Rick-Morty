@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // PAGES
 
 // COMPONENTS
+import Search from "../components/Search";
 import Alive from "../components/sub/Alive";
 import Pagination from "../components/Pagination";
 
@@ -14,6 +15,8 @@ import "./style/Characters.scss"
 function Characters() {
 
   const [ api, setApi ] = useState("https://rickandmortyapi.com/api/character")
+  const [ found, setFound ] = useState(true)
+
   const [ character, setCharacter ] = useState([])
   const [ page, setPage ] = useState([])
 
@@ -22,28 +25,45 @@ function Characters() {
   }, [api])
 
   const fetchChara = async () => {
-    const data = await fetch(api)
-    const jsonData = await data.json()
-    setCharacter(jsonData.results)
-    setPage(jsonData.info)
+    try {
+      const data = await fetch(api)
+      if (!data.ok) {
+        return setFound(false)
+      }
+      setFound(true)
+      const jsonData = await data.json()
+      setCharacter(jsonData.results)
+      setPage(jsonData.info)
+    } catch {
+      console.error(error)
+    }
   }
 
   return (
     <div className="Characters">
-      <div className="cards">
+      <Search setApi={setApi}/>
       {
-        character.map(({name, id, image, status}, key) => (
-          <Link to={`${id}`} className="card" key={key}>
-            <img src={image} alt={`${name} image`} />
-            <div className="info">
-              <h2>{name}</h2>
-              <Alive className="status" status={status}/>
-            </div>
-          </Link>
-        )) 
+        found ?
+        <div className="cards">
+          {
+            character.map(({name, id, image, status}, key) => (
+              <Link to={`${id}`} className="card" key={key}>
+                <img src={image} alt={`${name} image`} />
+                <div className="info">
+                  <h2>{name}</h2>
+                  <Alive className="status" status={status}/>
+                </div>
+              </Link>
+            )) 
+          }
+          </div>
+        : <div className="error">Character 404</div>
       }
-      </div>
-      <Pagination setApi={setApi} page={page}/>
+      {
+        found ?
+          <Pagination setApi={setApi} page={page}/>
+        : ""
+      }
     </div>
   )
 }
