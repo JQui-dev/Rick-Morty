@@ -26,11 +26,13 @@ function App() {
       <NavBar/>
         <Routes>
           <Route path="/" element={<HomePage/>}></Route>
+          <Route path="*" element={<Error/>}></Route>
+
           <Route path="characters/" element={<Characters/>}></Route>
           <Route path="characters/:id" element={<Specific/>}></Route>
+          
           <Route path="places" element={<Places/>}></Route>
           <Route path="about" element={<About/>}></Route>
-          <Route path="*" element={<Error/>}></Route>
         </Routes>
       <Footer/>
       </BrowserRouter>

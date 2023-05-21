@@ -3,7 +3,6 @@ import { useState, useEffect } from "react"
 import { Link } from "react-router-dom";
 
 // PAGES
-import Specific from "./Specific";
 
 // COMPONENTS
 import Alive from "../components/sub/Alive";

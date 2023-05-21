@@ -1,7 +1,8 @@
 @use "./../../style.scss";
 
 .NavBar {
-    @include style.flex-c;
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
 
     padding: var(--gap);
@@ -12,8 +13,10 @@
         color: var(--cb);
     }
 
-    & nav {
+    .top {
         display: flex;
+        align-items: center;
+        justify-content: space-between;
         gap: var(--gap);
 
         & a {
