@@ -2,67 +2,65 @@
 
 .HomePage {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 
-    min-height: 75dvh;
+    height: 80dvh;
 
-    padding: var(--gap);
+    overflow: hidden;
+    background: var(--c2);
+    
+    .left{
+        flex: 1;
 
-    background-image: url("/main.webp");
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover;
-
-    color: var(--ca);
-
-    .phrase {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        gap: calc(var(--gap)*3);
-
-        .info {
-            display: flex;
+        
+        .top, .bottom {
+            flex: 1;
+            @include style.flex-c;
             flex-direction: column;
 
-            filter: saturate(0);
-    
-            background: #fff1;
-            backdrop-filter: blur(1px);
-    
-            border-radius: var(--gap);
-    
-            padding: calc(var(--gap)*2) var(--gap);
+            padding: var(--gap);
             gap: var(--gap);
-    
-            & h2 {
-                text-align: justify;
-            }
-            & h3 {
-                text-align: end;
+        }
+        .top {
+            text-align: center;
+        }
+        .bottom {
+            & a {
+                padding: var(--gap);
+
+                border-radius: var(--gap);
+
+                background: var(--c3);
+                color: var(--cb);
             }
         }
     }
+    .right{
+        flex: 2;
 
+        & img {
+            width: 100%;
+            height: 100%;
+            
+            transform: scaleX(-1);
+            object-fit: contain;
 
-    .see {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        min-width: 50%;
-
-        padding: var(--gap);
-
-        font-weight: 600;
-
-        border-radius: var(--gap);
-
-        background: var(--c2);
-        color: var(--cb);
+            border-radius: var(--gap);
+            background: #fff;
+        }
     }
+}
+
+@media screen and (max-width: 600px) {
+    .HomePage {
+        flex-direction: column;
+        height: auto;
+
+        .right{
+            & img {
+                height: 300px;
+            }
+        }
+    }    
 }
