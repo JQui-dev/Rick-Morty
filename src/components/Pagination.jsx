@@ -6,7 +6,6 @@ import { GrFormPrevious, GrFormNext } from "react-icons/gr"
 function Pagination({setApi, page}) {
 
     let [ to, goTo ] = useState("")
-    console.log(page)
 
     const scrollTop = () => {
         window.scrollTo({top: 0})

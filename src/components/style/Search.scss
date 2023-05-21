@@ -1,0 +1,28 @@
+@use "./../../style.scss";
+
+.Search {
+    display: flex;
+    justify-content: end;
+
+    & button, input {
+        all: unset;
+
+        @include style.flex-c;
+
+        padding: calc(var(--gap)/2) var(--gap);
+
+        background: var(--c2);
+    }
+    & input {
+        border-top-left-radius: var(--gap);
+        border-bottom-left-radius: var(--gap);
+    }
+    & button {
+        width: 30px;
+        aspect-ratio: 1;
+
+        border-left: 2.5px solid var(--c3);
+        border-top-right-radius: var(--gap);
+        border-bottom-right-radius: var(--gap);
+    }
+}
