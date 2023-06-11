@@ -1,0 +1,12 @@
+.Status {
+    position: absolute;
+    bottom: 0;
+
+    height: 5px;
+    width: 100%;
+
+    border-radius: 15px;
+}
+.alive { background: #f00; }
+.dead { background: #0f0; }
+.unknown { background: #aaa; }

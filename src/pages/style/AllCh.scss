@@ -1,0 +1,11 @@
+@use "/src/style.scss";
+
+.AllCh {
+    display: flex;
+    flex-direction: column;
+
+    padding: var(--gap);
+    gap: var(--gap);
+    
+    background: var(--cc);
+}

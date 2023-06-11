@@ -5,12 +5,21 @@
 }
 
 :root {
-    --c1: #0ff;
-    --c2: #0aa;
-    --c3: #055;
-    --ca: #000;
-    --cb: #fff;
+    --c1: #ffd803;
+    --c2: #bae8e8;
+    --c3: #272343;
 
+    --ca: #000;
+    --cb: #f3fbfb;
+    --cc: #e3ebeb;
+
+    --fsm: .7rem;
+    --fn: 1.1rem;
+    --flg: 1.6rem;
+    --fxl: 2rem;
+    --f2xl: 2.6rem;
+
+    --semigap: 5px;
     --gap: 10px;
 
     --time: 200ms;

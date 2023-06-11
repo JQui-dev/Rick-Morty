@@ -1,36 +1,9 @@
-@use "./../../style.scss";
+@use '/src/style.scss';
 
 .Pagination {
     display: flex;
-    align-items: center;
-    justify-content: center;
-
-    gap: var(--gap);
-
-    & input {
-        border-bottom: 2px solid #fff;
-        &::-webkit-outer-spin-button,
-        &::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
-        /* Firefox */
-        & [type=number] {
-          -moz-appearance: textfield;
-        }
-    }
-    & ::placeholder {
-        color: #444;
-    }
-
-    .item {
-        all: unset;
-
-        padding: var(--gap);
-
-        border-radius: var(--gap);
-
-        background: var(--c2);
-        color: var(--cb);
+    & button {
+        width: 30px;
+        aspect-ratio: 1;
     }
 }

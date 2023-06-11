@@ -2,7 +2,7 @@ import React from 'react'
 
 function Error() {
   return (
-    <div>NOT FOUND</div>
+    <div>Error</div>
   )
 }
 

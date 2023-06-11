@@ -1,0 +1,53 @@
+@use "/src/style.scss";
+
+.Ch {
+    height: 100svh;
+    background: var(--cc);
+    
+    & img {
+        position: fixed;
+
+        height: 100svh;
+        width: 50%;
+
+        object-fit: cover;
+    }
+
+    .info {
+        position: absolute;
+        right: 0;
+
+        height: 100svh;
+        width: 50%;
+
+        overflow: auto;
+
+        scroll-snap-type: y mandatory;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .Ch {
+        & img {
+            top: 0;
+    
+            height: 50svh;
+            width: 100%;
+    
+            object-fit: contain;
+
+        @media screen and (max-width:350px) {
+            object-fit: cover;
+        }
+
+        }
+    
+        .info {
+            right: auto;
+            bottom: 0;
+    
+            height: 50svh;
+            width: 100%;
+        }
+    } 
+}
