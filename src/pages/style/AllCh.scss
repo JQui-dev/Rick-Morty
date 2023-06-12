@@ -2,6 +2,7 @@
 
 .AllCh {
     display: flex;
+    justify-content: space-between;
     flex-direction: column;
 
     padding: var(--gap);

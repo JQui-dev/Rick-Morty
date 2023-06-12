@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
 import { AiFillEye } from "react-icons/ai"
+import "./style/Landing.scss"
 
 function Landing() {
 
@@ -11,18 +12,24 @@ function Landing() {
   }, [])
 
   const randImg = () => {
-    // get a number less than 4
-    let randNum = Math.floor(Math.random()*3)+1;
+    // get a number less than 3
+    let randNum = Math.floor(Math.random()*2)+1;
     setImgUrl(`public/assets/img/rm${randNum}.png`)
   }
 
   return (
     <main>
       <section>
-        <h1>Wubba Lubba Dub Hub</h1>
-        <h2>Grab your portal gun, put on your Meeseeks' smile, and get ready to dive headfirst into the Rick and Morty universe.</h2>
+        <div className="info">
+          <h1>Wubba Lubba Dub 
+            <span>
+            Hub
+            </span>
+          </h1>
+          <p>Grab your portal gun, put on your Meeseeks' smile, and get ready to dive headfirst into the Rick and Morty universe.</p>
+        </div>
         
-      <Link to='/characters'>
+        <Link to='/characters'>
           <AiFillEye/>
           Characters
         </Link>

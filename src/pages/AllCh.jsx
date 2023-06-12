@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 
-import Pagination from '../components/Pagination'
-import Cards from '../components/Cards'
+import "./style/AllCh.scss"
 
-import "./style/AllCh.scss";
+import Cards from '../components/Cards'
+import Pagination from '../components/Pagination'
 
 function AllCh() {
 
+  
   const [api, setApi] = useState("https://rickandmortyapi.com/api/character")
-
   const [data, setData] = useState([]);
   const [chara, setChara] = useState([]);
   const [error, setError] = useState("");
@@ -43,8 +43,8 @@ function AllCh() {
 
   return (
     <div className="AllCh">
-        <Pagination data={data} setApi={setApi}/>
         <Cards chara={chara}/>
+        <Pagination data={data} setApi={setApi} api={api}/>
     </div>
   )
 }

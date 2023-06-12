@@ -2,8 +2,27 @@
 
 .Pagination {
     display: flex;
-    & button {
-        width: 30px;
+    justify-content: center;
+
+    gap: var(--gap);
+
+    & button, h3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 2.5rem;
         aspect-ratio: 1;
+
+        font-size: 1.2rem;
+
+        border: none;
+        border-radius: var(--gap);
+
+        box-shadow: 
+            -1px -1px 2.5px #555,
+            1px 1px 2.5px #555;
+
+        background: var(--c1);
     }
 }

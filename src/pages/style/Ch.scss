@@ -1,13 +1,11 @@
 @use "/src/style.scss";
 
 .Ch {
-    height: 100svh;
-    background: var(--cc);
-    
+    height: calc(100svh - 3.6rem);
     & img {
         position: fixed;
 
-        height: 100svh;
+        height: 100%;
         width: 50%;
 
         object-fit: cover;
@@ -17,7 +15,7 @@
         position: absolute;
         right: 0;
 
-        height: 100svh;
+        height: calc(100svh - 3.6rem);
         width: 50%;
 
         overflow: auto;
@@ -29,14 +27,14 @@
 @media screen and (max-width:800px) {
     .Ch {
         & img {
-            top: 0;
+            top: 3.6rem;
     
-            height: 50svh;
+            height: calc(50svh - 3.6rem);
             width: 100%;
     
             object-fit: contain;
 
-        @media screen and (max-width:350px) {
+        @media screen and (max-width:380px) {
             object-fit: cover;
         }
 

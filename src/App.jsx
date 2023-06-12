@@ -1,3 +1,7 @@
+import React from "react"
+
+import NavBar from "./components/NavBar"
+
 import Landing from "./pages/Landing"
 import Error from "./pages/Error"
 
@@ -10,6 +14,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <NavBar/>
         <Routes>
           <Route path="/" element={<Landing/>}></Route>
           <Route path="*" element={<Error/>}></Route>
