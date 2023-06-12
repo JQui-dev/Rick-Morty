@@ -14,7 +14,7 @@ function Landing() {
   const randImg = () => {
     // get a number less than 3
     let randNum = Math.floor(Math.random()*2)+1;
-    setImgUrl(`public/assets/img/rm${randNum}.png`)
+    setImgUrl(`/assets/img/rm${randNum}.png`)
   }
 
   return (

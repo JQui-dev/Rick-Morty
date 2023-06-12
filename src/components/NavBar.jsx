@@ -24,7 +24,7 @@ function NavBar() {
             <Link to="https://jqui-dev.netlify.app/" target='_BLANK'>CONTACT</Link>
             <Link to="https://rickandmortyapi.com/" target='_BLANK'>API</Link>
 
-            <img src="/public/assets/img/main_xlq.png"/>
+            <img src="/assets/img/main_xlq.png"/>
           </div>
 
           : <BiMenu onClick={()=>{setShow(true)}}/>
