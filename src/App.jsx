@@ -8,6 +8,8 @@ import Error from "./pages/Error"
 import AllCh from "./pages/AllCh"
 import Ch from "./pages/Ch"
 
+import "./App.scss";
+
 import { Route, Routes, BrowserRouter } from "react-router-dom"
 
 function App() {

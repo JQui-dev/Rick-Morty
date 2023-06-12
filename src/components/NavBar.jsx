@@ -12,7 +12,7 @@ function NavBar() {
 
   return (
     <header>
-      <h1>RM</h1>
+      <Link to="/" className='title'>RM</Link>
       <nav>
         {
           show 
@@ -21,7 +21,7 @@ function NavBar() {
           <div className='showed' onClick={()=>{setShow(false)}}>
             <Link to="/">HOME</Link>
             <Link to="/characters">CHARACTERS</Link>
-            <Link to="https://jqui-dev.netlify.app/" target='_BLANK'>CONTACT</Link>
+            <Link to="https://jqui-dev.netlify.app/contact" target='_BLANK'>CONTACT</Link>
             <Link to="https://rickandmortyapi.com/" target='_BLANK'>API</Link>
 
             <img src="/assets/img/main_xlq.png"/>
