@@ -22,7 +22,17 @@ header {
         display: flex;
         align-items: center;
         justify-content: end;
-        font-size: 2rem;
+        .navButton {
+            display: flex;
+            gap: var(--semigap);
+            font-size: 2rem;
+            & a {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #000;
+            }
+        }
 
         .showed {
             position: fixed;

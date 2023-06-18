@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar"
 import Landing from "./pages/Landing"
 import Error from "./pages/Error"
 
+import Search from "./pages/Search"
 import AllCh from "./pages/AllCh"
 import Ch from "./pages/Ch"
 
@@ -23,6 +24,8 @@ function App() {
 
           <Route path="/characters" element={<AllCh/>}></Route>
           <Route path="/ch/:id" element={<Ch/>}></Route>
+          <Route path="/search" element={<Search/>}></Route>
+          
         </Routes>
       </BrowserRouter>
     </div>

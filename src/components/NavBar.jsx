@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { Link } from 'react-router-dom';
 
+import { AiOutlineSearch } from "react-icons/ai"
 import { BiSearch, BiMenu } from "react-icons/bi"
 
 import "./style/NavBar.scss";
@@ -15,8 +16,7 @@ function NavBar() {
       <Link to="/" className='title'>RM</Link>
       <nav>
         {
-          show 
-          ?
+          show ?
 
           <div className='showed' onClick={()=>{setShow(false)}}>
             <Link to="/">HOME</Link>
@@ -27,7 +27,13 @@ function NavBar() {
             <img src="/assets/img/main_xlq.png"/>
           </div>
 
-          : <BiMenu onClick={()=>{setShow(true)}}/>
+          : 
+          <div className="navButton">
+            <Link to="/search">
+              <AiOutlineSearch/>
+            </Link>
+            <BiMenu onClick={()=>{setShow(true)}}/>
+          </div>
         }
       </nav>
     </header>
