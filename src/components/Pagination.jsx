@@ -1,20 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { BiFirstPage, BiChevronLeft, BiHomeAlt2, BiChevronRight, BiLastPage } from "react-icons/bi"
+import { BiFirstPage, BiChevronLeft, BiChevronRight, BiLastPage } from "react-icons/bi"
 
 import "./style/Pagination.scss"
 
 function Pagination({data, setApi, api}) {
 
   const [ page, setPage ] = useState("1")
-
-  // Number of the page
-  useEffect(()=>{
-    const calcPage = api.slice(47, api.length)
-    if (calcPage === "") {
-      return setPage("1")
-    }
-    setPage(calcPage)
-  }, [data])
 
   // When a button is clicked
   const move = (here) => {
@@ -25,10 +16,52 @@ function Pagination({data, setApi, api}) {
     setApi(here);
   }
 
+  // Last and first buttons
+  const handleMove = (where) => {
+    let splited = api.split("?")
+    let main = splited[0]
+    let params = splited[1].split("&")
+
+    for(let i=0; i<params.length; i++) {
+      if (params[i].includes("page")) {
+        params.splice(i, 1)
+      }
+    }
+
+    params = params.join("&")
+    
+    let link = ""
+    if (where === "first") {
+      link = `${main}?${params}`
+    } else if (where === "last") {
+      link = `${main}?page=${data.info.pages}&${params}`
+    }
+    
+    move(link)
+  }
+
+
+
+  useEffect(()=>{
+    api && pageNumber()
+  }, [api])
+
+  const pageNumber = () => {
+    let splited = api.split("?")
+    let params = splited[1].split("&")
+    
+    for(let i=0; i<params.length; i++) {
+      if (params[i].includes("page")) {
+        return setPage(params[i].split("=")[1])
+      }
+      return setPage("1")
+    }
+  }
+
   return (
     <footer className='Pagination'>
 
-        <button onClick={()=>{move("https://rickandmortyapi.com/api/character")}}>
+        <button onClick={()=>handleMove("first")}>
             <BiFirstPage/>
         </button>
 
@@ -44,7 +77,7 @@ function Pagination({data, setApi, api}) {
             <BiChevronRight/>
         </button>
 
-        <button onClick={()=>{move(`https://rickandmortyapi.com/api/character?page=${data.info.pages}`)}}>
+        <button onClick={()=>handleMove("last")}>
             <BiLastPage/>
         </button>
 

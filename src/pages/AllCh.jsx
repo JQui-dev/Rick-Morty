@@ -8,7 +8,7 @@ import Pagination from '../components/Pagination'
 function AllCh() {
 
   
-  const [api, setApi] = useState("https://rickandmortyapi.com/api/character")
+  const [api, setApi] = useState("https://rickandmortyapi.com/api/character?")
   const [data, setData] = useState([]);
   const [chara, setChara] = useState([]);
   const [error, setError] = useState("");

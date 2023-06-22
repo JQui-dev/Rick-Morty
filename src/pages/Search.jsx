@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react'
 
 import "./style/Search.scss"
 
+import SearchBtn from '../components/SearchBtn'
 import Cards from '../components/Cards'
+import Pagination from '../components/Pagination'
 
 function Search() {
 
-    const [ lastS, setLastS ] = useState(null)
-    const [ lastG, setLastG ] = useState(null)
+    const difStatus = [ "alive", "dead", "unknown" ];
+    const difGender = [ "male", "female", "genderless", "unknown" ];
+    const [ linkFIN, setLinkFIN ] = useState("")
 
     const [ nameNEW, setNameNEW ] = useState("")
     const [ statusNEW, setStatusNEW ] = useState("")
     const [ genderNEW, setGenderNEW ] = useState("")
-    const [ linkFIN, setLinkFIN ] = useState("")
+
     const [ data, setData ] = useState([])
     const [ chFIL, setChFIL ] = useState([])
 
@@ -39,7 +42,7 @@ function Search() {
           const fetchData = await fetch(linkFIN);
           if(fetchData.ok) {
             const jsonData = await fetchData.json();
-            setData(jsonData.info);
+            setData(jsonData);
             setChFIL(jsonData.results);
             console.log(jsonData);
           } else {
@@ -51,10 +54,7 @@ function Search() {
       };
 
 
-      const statusChanger = (n, sta) => {
-        SetLast(n)
-        setStatusNEW(`status=${sta}`)
-      }
+      
 
   return (
     <div className="Search">
@@ -71,66 +71,22 @@ function Search() {
             <h4>Status:</h4>
 
             <div className="buttons">
-                <button 
-                className={lastS===1 ? "act" : ""}
-                onClick={()=>{
-                    setLastS(1)
-                    setStatusNEW("status=alive")}}>
-                        Alive</button>
-                <button 
-                className={lastS===2 ? "act" : ""}
-                onClick={()=>{
-                    setLastS(2)
-                    setStatusNEW("status=dead")}}>
-                        Dead</button>
-                <button 
-                className={lastS===3 ? "act" : ""}
-                onClick={()=>{
-                    setLastS(3)
-                    setStatusNEW("status=unknown")}}>
-                        Unknown</button>
-                <button 
-                className={lastS===4 ? "act" : ""}
-                onClick={()=>{
-                    setLastS(4)
-                    setStatusNEW("")}}>
-                        Any</button>
+                {
+                difStatus.map((res, key)=>(
+                    <SearchBtn key={key} what="status" newProp={res} setStatusNEW={setStatusNEW}/>
+                ))
+                }
             </div>
         </div>
 
         <div className='gender'>
             <h4>Gender:</h4>
             <div className="buttons">
-                <button 
-                className={lastG===1 ? "act" : ""}
-                onClick={()=>{
-                    setLastG(1)
-                    setGenderNEW("gender=female")}}>
-                        Female</button>
-                <button 
-                className={lastG===2 ? "act" : ""}
-                onClick={()=>{
-                    setLastG(2)
-                    setGenderNEW("gender=male")}}>
-                        Male</button>
-                <button 
-                className={lastG===3 ? "act" : ""}
-                onClick={()=>{
-                    setLastG(3)
-                    setGenderNEW("gender=genderless")}}>
-                        Genderless</button>
-                <button 
-                className={lastG===4 ? "act" : ""}
-                onClick={()=>{
-                    setLastG(4)
-                    setGenderNEW("gender=unknown")}}>
-                        Unknown</button>
-                        <button 
-                className={lastG===5 ? "act" : ""}
-                onClick={()=>{
-                    setLastG(5)
-                    setGenderNEW("")}}>
-                        Any</button>
+                {
+                difGender.map((res, key)=>(
+                    <SearchBtn key={key} what="gender" newProp={res} setGenderNEW={setGenderNEW}/>
+                ))
+                }
             </div>
         </div>
         </section>
@@ -139,6 +95,7 @@ function Search() {
             {linkFIN!=="https://rickandmortyapi.com/api/character?&&"
             ?<Cards chara={chFIL}/>
             : ""}
+            <Pagination data={data} api={linkFIN} setApi={setLinkFIN}/>
         </section>
     </div>
     )
