@@ -1,0 +1,15 @@
+@use "/src/style.scss";
+
+.delete {
+    background: #b00;
+    color: #bbb;
+}
+
+button {
+    cursor: pointer;
+    padding: .5rem;
+
+    border-radius: 5px;
+
+    background: var(--cb);
+}

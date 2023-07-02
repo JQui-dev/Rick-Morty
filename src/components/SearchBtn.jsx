@@ -1,18 +1,26 @@
 import React from 'react'
 
+import "./style/SearchBtn.scss"
+
 function SearchBtn({what, newProp, setStatusNEW, setGenderNEW}) {
 
     const statusChanger = (what, newProp) => {
         if(what === "status") {
-            return setStatusNEW(`status=${newProp}`)
+            newProp === "any" 
+            ? setStatusNEW("")
+            : setStatusNEW(`status=${newProp}`)
         } 
         if (what === "gender") {
-            return setGenderNEW(`gender=${newProp}`)
+            newProp === "any" 
+            ? setGenderNEW("")
+            : setGenderNEW(`gender=${newProp}`)
         }
     }
 
+
+
   return (
-    <button onClick={()=>{statusChanger(what, newProp)}}>
+    <button className={newProp==="any" ? "delete" : ""} onClick={()=>statusChanger(what, newProp)}>
         {newProp}
     </button>
   )

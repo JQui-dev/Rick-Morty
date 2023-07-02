@@ -24,7 +24,6 @@ function AllCh() {
         const jsonData = await fetchData.json();
         setData(jsonData);
         setChara(jsonData.results);
-        console.log(jsonData);
       } else {
         setError("Error fetching")
       }

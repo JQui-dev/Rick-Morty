@@ -5,6 +5,7 @@ button, input {
     outline: none;
 }
 
+
 .Search {
     display: flex;
     flex-direction: column;
@@ -13,58 +14,52 @@ button, input {
 
     padding: var(--gap);
 
+    background: var(--cc);
+    
     .filters {
         display: flex;
         flex-direction: column;
-        align-items: start;
+        align-items: center;
         justify-content: center;
 
-        gap: var(--gap);
-        padding: 5rem 2rem;
+        text-align: center;
 
-        .name, .status, .gender {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: space-around;
-
-            width: 100%;
-
-            .buttons {
-                display: flex;
-                gap: var(--semigap);
-
-                & button {
-                    padding: var(--semigap);
-
-                    
-                    border-radius: var(--semigap);
-                }
-                .act {
-                    background: #f00;
-                }
-            }
-        }
+        padding: 2rem;
+        gap: 1.5rem;
 
         .name {
-            width: calc(100% - var(--gap)*2);
+            padding: 1rem;
 
-            margin: 1rem 0;
-            padding: var(--gap);
+            width: 20rem;
+            
+            border-radius: 999px;
 
-            border-radius: 20px;
-
-            box-shadow: 4px 4px 5px #aaa;
+            background: var(--c1);
         }
-        .name:focus {
-            background: #eeea;
+
+        .status, .gender {
+            display: flex;
+            flex-direction: column;
+
+            gap: 0.1rem;
+
+            & h4 {}
+            
+            .buttons {
+                display: flex;
+                gap: .5rem;
+            }
         }
-        .status {} 
-        .gender {} 
     }
 
+
     .results {
-        gap: 0;
+        display: flex;
+        flex-direction: column;
+
         width: 100%;
+
+        padding: .5rem;
+        gap: .5rem;
     }
 }

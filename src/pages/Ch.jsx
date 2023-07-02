@@ -26,7 +26,6 @@ function Ch() {
             const fetchData = await fetch(`https://rickandmortyapi.com/api/character/${id}`)
             if(fetchData.ok) {
                 const jsonData = await fetchData.json()
-                console.log(jsonData)
                 setChara(jsonData)
             } else {
                 setError("Error fetching data")
