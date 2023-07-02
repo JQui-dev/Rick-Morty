@@ -12,7 +12,8 @@ button, input {
     align-items: center;
     justify-content: start;
 
-    padding: .5rem;
+    padding: 2rem .5rem;
+    gap: 1rem;
 
     background: var(--cc);
     
@@ -24,7 +25,6 @@ button, input {
 
         text-align: center;
 
-        padding: 2rem;
         gap: 1.5rem;
 
         .name {
