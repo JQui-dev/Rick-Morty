@@ -12,7 +12,7 @@ button, input {
     align-items: center;
     justify-content: start;
 
-    padding: var(--gap);
+    padding: .5rem;
 
     background: var(--cc);
     
@@ -59,7 +59,6 @@ button, input {
 
         width: 100%;
 
-        padding: .5rem;
         gap: .5rem;
     }
 }
