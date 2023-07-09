@@ -39,18 +39,14 @@ function Search() {
       }, [api]);
     
       const fetchIt = async () => {
-        try {
-          const fetchData = await fetch(api);
-          if(fetchData.ok) {
-            setFound(true)
-            const jsonData = await fetchData.json();
-            setData(jsonData);
-            setChFIL(jsonData.results);
-          } else {
-            setFound(false)
-          }
-        } catch (error) {
-          console.log(`Error: ${error}`)
+        const fetchData = await fetch(api);
+        if(fetchData.ok) {
+          setFound(true)
+          const jsonData = await fetchData.json();
+          setData(jsonData);
+          setChFIL(jsonData.results);
+        } else {
+          setFound(false)
         }
       };
 
@@ -95,9 +91,12 @@ function Search() {
             found ?
             <section className='results'>
                 {api!=="https://rickandmortyapi.com/api/character?&&"
-                ?<Cards chara={chFIL}/>
+                ?
+                <>
+                    <Cards chara={chFIL}/>
+                    <Pagination data={data} api={api} setApi={setApi}/>
+                </>
                 : ""}
-                <Pagination data={data} api={api} setApi={setApi}/>
             </section>
             : <h1>NOT FOUND</h1>
         }

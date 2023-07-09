@@ -45,7 +45,6 @@ function Ch() {
     const explicitInfo = async () => {
         let length = chara.episode.length;
         if (length>1) {
-            console.log(`${length} episodes`)
             setEpi(`${length} episodes`)
         } else {
             console.log(`${length} `)
@@ -53,7 +52,6 @@ function Ch() {
         }
 
         let cDate = new Date(chara.created)
-        console.log(cDate.toLocaleDateString())
         setDate(cDate.toLocaleDateString())
     }
 
